@@ -19,6 +19,11 @@ background: rgba(151, 44, 44, 0);
 .d-block {
     display: block !important;
 }
+.table tbody td.statu span {
+    position: relative;
+    border-radius: 30px;
+    padding: 4px 10px 4px 25px;
+}
 </style>
 	
 		<div class=" container ">
@@ -44,7 +49,6 @@ background: rgba(151, 44, 44, 0);
 						      <th>N°</th>
 						      <th>Plat</th>
 						      <th>From</th>
-						      <th >Delivering to</th>
 							  <th >Order </th>
 						      <th colspan="2">Take</th>
 							
@@ -81,7 +85,7 @@ background: rgba(151, 44, 44, 0);
 						
 							<small class="d-block">{{$order->address}}</small>
 						</td>
-							  <td style="font-size: 15px; font-weight:bold ;">{{$order->rue}}</td> 
+							 
 
 							
 
@@ -106,11 +110,11 @@ background: rgba(151, 44, 44, 0);
 								@if($lo>50)
 							  <td colspan="2" class="status"><span style="background-color: rgba(151, 44, 44, 0.287); color:#b60e0e" class="off waiting">Served!!</span></td>
 							  @elseif($lo>7)
-							  <td colspan="2"  class="status"><span style="background-color: rgba(151, 44, 44, 0.287); color:#b60e0e" class="off waiting">{{$difference}}</span></td>
+							  <td colspan="2"  class="statu"><span style="background-color: rgba(151, 44, 44, 0.287); color:#b60e0e" class="off waiting">{{$difference}}</span></td>
 							  @elseif($lo==5 )
-								<td colspan="2"  class="status"><span class="waiting">{{$difference}}</span></td>
+								<td colspan="2"  class="statu"><span class="waiting">{{$difference}}</span></td>
 								@elseif($lo<4)
-								<td colspan="2" class="status"><span class="active">{{$difference}}</span></td>
+								<td colspan="2" class="statu"><span class="active">{{$difference}}</span></td>
 								
 							  @endif
 							
@@ -131,23 +135,25 @@ background: rgba(151, 44, 44, 0);
 						 
 						  </tbody>
 						</table>
-					
 						@if (Session::has('null'))
-						<div class="alert alert-danger">
-							{{Session::get('null')}}
-							{{Session::put('null',null)}}
-						</div>
+						<script>
+							swal({
+								icon: "error"
+								title: "{!! Session::get('null')!!}" + "{!!  Session::put('null',null)!!}"
+							});
+						</script>
 					@endif
+					
 					</div>
 				</div>
 			</div>
 		</div>
 	
 
-	<script src="js/jquery.min.js"></script>
-  <script src="js/popper.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/main.js"></script>
+	<script src="../js/jquery.min.js"></script>
+  <script src="../js/popper.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/main.js"></script>
 
 @endsection
 

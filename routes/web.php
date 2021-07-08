@@ -10,7 +10,7 @@ use App\Http\Controllers\PDFController;
 use App\Http\Controllers\PlatController;
 use App\Http\Controllers\SendEmailController;
 use Illuminate\Http\Request;
-  
+use App\Http\controllers\welcomecontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +30,7 @@ use Illuminate\Http\Request;
 
   //------------------------------------Routes Abdelhadi-------------------------------------
 Auth::routes();
-
+Route::get('/aboutus', [HomeController::class ,'index'])->name('aboutus');
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // Route::get('generate-pdf', [PDFController::class, 'generatePDF'])->name('generate-pdf');
 // Route::get('send-email-pdf', [SendEmailController::class, 'index'])->name('send-email-pdf');
@@ -38,10 +38,9 @@ Route::get('/contactus', [App\Http\Controllers\HomeController::class, 'contact']
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/livreur', [App\Http\Controllers\LivreurController::class, 'show'])->name('livreur');
 
-Route::get('/maps', function () {
-    return view('maps');
-});
+
 Route::get('/profile', [App\Http\Controllers\profileController::class, 'show'])->name('profile');
+Route::get('/employe', [App\Http\Controllers\AdminController::class, 'showemploie'])->name('employe');
 Route::get('/profilead', [App\Http\Controllers\profileController::class, 'showpro'])->name('profilead');
 Route::get('/profilel', [App\Http\Controllers\profileController::class, 'showproliv'])->name('profilel');
 Route::get('/editprofile', [App\Http\Controllers\profileController::class, 'edit'])->name('editprofile');
@@ -67,7 +66,7 @@ Route::get('/ordersdelivery', [App\Http\Controllers\OrderController::class, 'sho
 Route::get('/take', [App\Http\Controllers\OrderController::class, 'take']);
 Route::get('/contactus1', [App\Http\Controllers\HomeController::class, 'contact'])->name('contactus1');
 Route::post('/send', [App\Http\Controllers\HomeController::class, 'send']);
-Route::get('/mapresto', [App\Http\Controllers\OrderController::class, 'show_resto']);
+Route::get('/mapresto', [App\Http\Controllers\OrderController::class, 'show_resto'])->name('mapresto');
 Route::get('/myorders', [App\Http\Controllers\OrderController::class, 'myord']);
 Route::get('/livorders/{id}', [App\Http\Controllers\OrderController::class, 'showord']);
 Route::get('/message', function() {
@@ -93,7 +92,7 @@ Route::post('/message', function(Request $request) {
         "message" => [
             "content" => [
                 "type" => "text",
-                "text" => "Hello from Vonage and Laravel :) Please reply to this message with a number between 1 and 100"
+                "text" => "Hello dear client , Your delivery guy is here at your location .. "
             ]
         ]
     ];
@@ -141,9 +140,7 @@ Route::post('/webhooks/inbound', function(Request $request) {
     }
     Log::Info($data);
 });
-        Route::get('/maps', function () {
-            return view('maps');
-        });
+        
         //------------------------------------Routes Nablil-------------------------------------
 
        
@@ -168,4 +165,16 @@ Route::post('/webhooks/inbound', function(Request $request) {
         Route::patch('/panier/{rowId}', [CartController::class ,'update'])->name('cart.update');
     });
         Route::get('/', [PlatController::class ,'index'])->name('plats.index');
-        Route::get('/aboutus', [HomeController::class ,'index'])->name('aboutus');
+        //--------------------------------------Hicham-------------------------------
+        Route::group(['middleware' => 'auth'], function() {
+        Route::get('/more/{id}', [welcomecontroller::class,'more']);
+        Route::get('/resh', [welcomecontroller::class,'resh'])->name('resh');
+        Route::get('/resd', [welcomecontroller::class,'resd'])->name('resd');
+        Route::get('/resp', [welcomecontroller::class,'resp'])->name('resp');
+        Route::get('/reso', [welcomecontroller::class,'reso'])->name('reso');
+        Route::get('/resn', [welcomecontroller::class,'resn'])->name('resn');
+        Route::get('/more1/{id}', [welcomecontroller::class,'more1']);
+        Route::post('/submit', [welcomecontroller::class,'submit']);
+        });
+        Route::get('/partners', [welcomecontroller::class,'par']);
+            

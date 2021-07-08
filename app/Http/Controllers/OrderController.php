@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Livreur ;
 
 class OrderController extends Controller
 {
@@ -135,7 +136,16 @@ class OrderController extends Controller
         $order->id_liv=Auth::user()->id;
         $order->status_order=1;
         $order->save();
-       
+        $livreur=Livreur::find(Auth::user()->id);
+        $ord=Order::where('id_liv',Auth::user()->id)->first();
+        if($ord->status_order!=2){
+        $livreur->work_stat=1;
+        $livreur->save();}
+        elseif($ord->status_order=2)
+        {
+        $livreur->work_stat=2;
+        $livreur->save();  
+        }
         Session::put('success','order taken!');
         return redirect('/orderclient');
         
@@ -204,13 +214,10 @@ class OrderController extends Controller
         ->where('status_order',0)
         ->groupBy('restaurants.nom')
          ->get();
-         if($orders->count()!=0) {
+       
             return view('maps1')->with('orders',$orders);
-            }
-            else{
-                Session::put('null','no data to show !');
-                return view('maps1')->with('maps1',$orders);
-            }
+            
+            
         
 
     }

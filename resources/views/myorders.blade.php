@@ -26,7 +26,7 @@ background: rgba(151, 44, 44, 0);
 		<div class=" container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">Hostory</h2>
+					<h2 class="heading-section">History</h2>
 					@if (Session::has('success'))
 						<div class="alert alert-success">
 							{{Session::get('success')}}
@@ -46,7 +46,7 @@ background: rgba(151, 44, 44, 0);
 						      <th>N°</th>
 						      <th>Plat</th>
 						      <th>From</th>
-						      <th >Delivering to</th>
+						      <th >Time</th>
 							  
 						      
 							
@@ -83,7 +83,7 @@ background: rgba(151, 44, 44, 0);
 						
 							<small class="d-block">{{$order->address}}</small>
 						</td>
-							  <td style="font-size: 15px; font-weight:bold ;">{{$order->rue}}</td> 
+							  <td style="font-size: 15px; font-weight:bold ;">{{$order->created_at}}</td> 
 
 							
 

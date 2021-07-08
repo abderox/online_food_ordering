@@ -43,6 +43,15 @@ class AdminController extends Controller
         
         return view('workingdeli')->with('demandes_livreurs',$demandes_livreurs); 
     }
+    public function showemploie()
+    {
+        $livreurs  = DB::table('users')
+        ->join('livreurs', 'users.id', '=', 'livreurs.id_user')
+        ->select('users.*', 'livreurs.*')
+        ->get();
+        
+        return view('admin.employe')->with('livreurs',$livreurs); 
+    }
 
     public function __construct()
     {

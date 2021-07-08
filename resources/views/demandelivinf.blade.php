@@ -92,10 +92,11 @@
 					<div class="card">
 						<div class="card-body">
 							@if (Session::has('success'))
-							<div class="alert alert-success">
-								{{Session::get('success')}}
-								{{Session::put('success',null)}}
-							</div>
+							<script>
+								swal({
+									title: "{!! Session::get('success')!!}" + "{!!  Session::put('success',null)!!}"
+								});
+							</script>
 						@endif
 						
 							<div class="d-flex flex-column align-items-center text-center">

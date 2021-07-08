@@ -32,9 +32,12 @@
 			<script src="assets/js/html5shiv.min.js"></script>
 			<script src="assets/js/respond.min.js"></script>
 		<![endif]-->
-    </head>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
+
+    	</head>
 	
-    <body>
+    	<body>
 		<!-- Main Wrapper -->
         <div class="main-wrapper">
 		
@@ -132,9 +135,10 @@
 							<li class="submenu">
 								<a href="#"><i class="la la-dashboard"></i> <span> Dashboard</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
-									<li><a href="{{url('/profilead')}}">profile</a></li>
-									<li><a href="{{url('/workingdeli')}}">Employes </a></li>
-									<li><a href="{{url('/demandes')}}">demandes</a></li>
+									<li><a href="{{url('/profilead')}}">Profile</a></li>
+									<li><a href="{{url('/workingdeli')}}">Status employes</a></li>
+									<li><a href="{{url('/employe')}}">Employes</a></li>
+									<li><a href="{{url('/demandes')}}">Demandes</a></li>
 								
 									
 								</ul>

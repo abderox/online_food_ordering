@@ -39,7 +39,13 @@
         </div>
     </div>
 
-
+    @if (Session::has('success'))
+    <script>
+        swal({
+            title: "{!! Session::get('success')!!}" + "{!!  Session::put('success',null)!!}"
+        });
+    </script>
+@endif
 
     <div class="col-md-12">
         <div class="" style="background-image: url('contact/images/map.jpg')">
@@ -62,9 +68,18 @@
       <span class="submitting"></span>
     
   </div>
+  <form action="{{url('/message')}}" method="POST">
+    @csrf
+  <div class="col-md-12 text-center">
+    <input type="hidden" name="number" value="212636588390">
+    <input type="submit" value="reached" class="btn btn-success rounded-0 py-2 px-4">
+    <span class="submitting"></span>
 
 </div>
+</form>
 </div>
+</div>
+
 
 <script type='text/javascript' src='https://maps.google.com/maps/api/js?language=en&key=AIzaSyAvUq0T7xdrsPyrSyi84PdbSou4CIDMIow&callback=initMap&libraries=places&region=GB'></script>
 <script defer>
@@ -157,12 +172,12 @@
     }
 </script>
 <script>
-    
-    document.getElementById("btn").addEventListener("click", () => {
-        map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 6,
+       map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat:  32.660379, lng:  -8.071475  },
+    zoom: 12,
   });
+    document.getElementById("btn").addEventListener("click", () => {
+     
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(
@@ -186,7 +201,7 @@
         }
       });
      
-    }
+    
     
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
       infoWindow.setPosition(pos);

@@ -6,10 +6,11 @@
     <div class="container-fluid">
      
       @if (Session::has('success'))
-      <div class="alert alert-success">
-          {{Session::get('success')}}
-          {{Session::put('success',null)}}
-      </div>
+      <script>
+          swal({
+              title: "{!! Session::get('success')!!}" + "{!!  Session::put('success',null)!!}"
+          });
+      </script>
   @endif
   <h2 class="mb-5 " style="margin-top: 150px ;display:flex ;justify-content:center">Demandes d'emploie livreurs</h2>
       <div class="table-responsive">

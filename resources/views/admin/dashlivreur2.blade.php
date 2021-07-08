@@ -7,7 +7,7 @@
 		<meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
         <meta name="author" content="Dreamguys - Bootstrap Admin Template">
         <meta name="robots" content="noindex, nofollow">
-        <title>Dashboard admin</title>
+        <title>Dashboard Livreur</title>
 		
 		<!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="../uploads/avatars/{{Auth::user()->image}}">
@@ -26,6 +26,8 @@
 		
 		<!-- Main CSS -->
         <link rel="stylesheet" href="../assets/css/style.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
 		
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
@@ -49,7 +51,7 @@
                 </div>
 				<!-- /Logo -->
 				
-				<a id="toggle_btn" href="javascript:void(0);">
+				<a  id="toggle_btn" href="javascript:void(0);">
 					<span class="bar-icon">
 						<span></span>
 						<span></span>

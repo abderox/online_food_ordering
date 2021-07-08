@@ -115,14 +115,14 @@
     <script>
       // Initialize and add the map
       function initMap() {
-        // The location of Uluru
+        // The location of Marrakech
         const uluru = { lat:  31.660379, lng:  -8.021475  };
-        // The map, centered at Uluru
+        // The map, centered at jnane awrad
         const map = new google.maps.Map(document.getElementById("map"), {
           zoom: 7,
           center: uluru,
         });
-        // The marker, positioned at Uluru
+        // The marker, positioned at jnane awrad
         const marker = new google.maps.Marker({
           position: uluru,
           map: map,

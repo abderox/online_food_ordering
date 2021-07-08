@@ -57,6 +57,9 @@ class LoginController extends Controller
         else if (auth()->user()->user_stat == 2){
             return '/mapresto';
         }
+        else if (auth()->user()->user_stat == 3){
+            return '/resn';
+        }
         else {
         return '/';
         }

@@ -239,7 +239,7 @@ h1, h2, h3, h4, h5, h6 {
   <div class="nav-scroller py-1 mb-2">
     <nav class="nav d-flex justify-content-between">
       <a class="p-2 text-muted" href="{{url('/')}}">Home</a>
-      <a class="p-2 text-muted" href="{{url('/')}}">Our partners</a>
+      <a class="p-2 text-muted" href="{{url('/partners')}}">Our partners</a>
       <a class="p-2 text-muted" href="{{url('contactus')}}">Contact us</a>
       <a class="p-2 text-muted" href="{{url('/')}}">About</a>
       

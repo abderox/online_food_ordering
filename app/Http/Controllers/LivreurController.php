@@ -59,7 +59,13 @@ class LivreurController extends Controller
         $user->save();
         $livreur = new Livreur();
        
-       
+        $req->validate([
+            'status_expr' =>'required',
+            'gender'=>'required',
+            'status_etud' =>'required',
+            'status_vehicule'=>'required',
+            'imageid' => 'mimes:jpeg,bmp,png'
+        ]);
         $livreur ->status_exper=$req->status_expr == 'true' ? 1 : 0;
         $livreur ->status_genre=$req->gender == 'true' ? 1 : 0;
         $livreur ->status_vehicule=$req->status_vehicule == 'true' ? 1 : 0;
@@ -73,7 +79,7 @@ class LivreurController extends Controller
     		$filenam = time() . '.' . $avata->getClientOriginalExtension();
     		//Image::make($avata)->resize(450, 300)->save( public_path('uploads/avatars/identity/'. $filenam ) );
             $avata->move('uploads/avatars/identity/',$filenam);
-    		$livreur->image= $filenam;
+    		$livreur->identity= $filenam;
     	
     	}
        
